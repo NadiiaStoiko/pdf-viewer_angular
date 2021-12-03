@@ -3,10 +3,12 @@
   flex-direction: row;
   align-items: center;
   height: 75px;
-  width: 100%;
+  width: 98%;
   justify-content: space-between;
   background-color: #fff;
   margin-bottom: 10px;
+  padding: 20px;
+  margin-left: 10px;
 }
 .logo-img {
   width: 115px;
@@ -25,6 +27,7 @@
   width: 18px;
   height: 18px;
   margin-left: 20px;
+  margin-bottom: 20px;
 }
 .logout {
   width: 18px;
@@ -40,6 +43,7 @@
 .user-id {
   font-size: 8px;
 }
+
 .logout-btn {
   display: flex;
   align-items: center;
@@ -51,11 +55,10 @@
   color: #313133;
   background: #d1fbf1;
   border: none;
-  /* box-shadow: 12px 12px 24px rgba(79, 209, 197, 0.64); */
   transition: all 0.3s ease-in-out 0s;
-  /* cursor: pointer; */
   outline: none;
   position: relative;
+  transform: translateY(-6px);
 }
 
 .logout-btn::before {
@@ -85,10 +88,4 @@
   left: 50%;
   transform: translate(-50%, -50%);
   animation: ring 1.5s infinite;
-}
-
-.logout-btn:hover,
-.logout-btn:focus {
-  color: #313133;
-  transform: translateY(-6px);
 }

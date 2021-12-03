@@ -21,21 +21,20 @@
       <div class="user-name">Esther Howard</div>
       <div class="user-id">856942153746548</div>
     </div>
-    <div class="user-dropdown">
+    <div class="user-dropdown" (click)="toggle()">
       <img
         class="dropdown"
         src="/assets/img/img-header/dropdown.png"
         alt="dropdown"
       />
-      <div>
-        <button class="logout-btn">
-          <img
-            class="logout"
-            src="/assets/img/img-header/on-green.svg"
-            alt="logout-button"
-          />Déconnexion
-        </button>
-      </div>
+
+      <button *ngIf="isShow" class="logout-btn">
+        <img
+          class="logout"
+          src="/assets/img/img-header/on-green.svg"
+          alt="logout-button"
+        />Déconnexion
+      </button>
     </div>
   </div>
 </div>
