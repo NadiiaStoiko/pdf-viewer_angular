@@ -1,1 +1,57 @@
-<p>main-page works!</p>
+<div class="client-sectoin-wrapper">
+  <div class="client-sectoin-title">
+    <img
+      class="client-sectoin-title-img"
+      src="/assets/img/img-clientsectoin/note-2.svg"
+      alt="picture"
+    />
+    <span class="client-sectoin-title-content">Pré-valuation</span>
+  </div>
+  <section class="client-sectoin-action-section">
+    <div class="filter-wrap">
+      <input id="icon" class="filter" placeholder="Recherche des modeles" />
+    </div>
+    <div class="table-title">
+      <label class="container">
+        <input type="checkbox" checked="checked" />
+        <span class="checkmark"></span>
+      </label>
+      <div class="list-items">ID</div>
+      <div class="list-items">Nom du modéles</div>
+    </div>
+    <div class="table-body">
+      <div
+        class="list-item"
+        *ngFor="let item of itemsList"
+        [ngClass]="{ selected: isSelected }"
+      >
+        <div class="item-content">
+          <label class="container">
+            <input type="checkbox" checked="checked" />
+            <span class="checkmark"></span>
+          </label>
+          <div class="item-id">{{ item.id }}</div>
+          <div class="item-name">{{ item.item }}</div>
+        </div>
+        <div class="item-icons">
+          <img
+            class="eye"
+            src="/assets/img/img-clientsectoin/eye.png"
+            alt="eye"
+          />
+          <img
+            class="edit"
+            src="/assets/img/img-clientsectoin/edit.png"
+            alt="edit"
+          />
+          <img
+            class="edit"
+            src="/assets/img/img-clientsectoin/toggle_grey.png"
+            alt="toggle"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="client-sectoin-view-section"></section>
+</div>

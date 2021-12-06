@@ -1,12 +1,13 @@
 <nav class="wrapper">
   <ul class="sidebar">
-    <li
-      class="icon-item"
-      *ngFor="let icon of icons"
-      (mouseenter)="isActive(icon)"
-      (mouseleave)="isActive(icon)"
-    >
-      <img class="icon-img" src="{{ icon.src }}" alt="{{ icon.alt }}" />
+    <li class="icon-item" *ngFor="let icon of icons">
+      <img
+        class="icon-img"
+        src="{{ icon.src }}"
+        alt="{{ icon.alt }}"
+        (mouseenter)="isActive(icon)"
+        (mouseleave)="isActive(icon)"
+      />
       <div *ngIf="activeItem">
         <span class="text">{{ icon.text }}</span>
       </div>
