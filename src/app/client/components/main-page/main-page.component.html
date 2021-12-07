@@ -23,12 +23,16 @@
       <div
         class="list-item"
         *ngFor="let item of itemsList"
-        [class.selected]="item === selectedItem"
-        (click)="check(item)"
+        [class.selected]="item.checked"
+        [class.disabled]="item.disabled"
+        (change)="check(item)"
       >
         <div class="item-content">
           <label class="container">
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              [attr.disabled]="item.disabled ? true : null"
+            />
             <span class="checkmark"></span>
           </label>
           <div class="item-id">{{ item.id }}</div>
@@ -37,23 +41,29 @@
         <div class="item-icons">
           <img
             class="eye"
-            [src]="isDisabled ? eye.srcOf : eye.srcOn"
+            [src]="item.disabled ? eye.srcOf : eye.srcOn"
             alt="eye"
           />
           <img
             class="edit"
-            [src]="isDisabled ? edit.srcOf : edit.srcOn"
+            [src]="item.disabled ? edit.srcOf : edit.srcOn"
             alt="edit"
           />
           <img
             (click)="disable(item)"
             class="toggle"
-            [src]="isDisabled ? toggler.srcOf : toggler.srcOn"
+            [src]="item.disabled ? toggler.srcOf : toggler.srcOn"
             alt="toggle"
           />
         </div>
       </div>
     </div>
   </section>
-  <section class="client-sectoin-view-section"></section>
+  <section class="client-sectoin-view-section">
+    <ngx-extended-pdf-viewer
+      [src]="'assets/some.pdf'"
+      [useBrowserLocale]="true"
+      height="80vh"
+    ></ngx-extended-pdf-viewer>
+  </section>
 </div>

@@ -1,5 +1,6 @@
+import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-
+import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -7,17 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
   public itemsList = [
-    { item: 'Pré-valuation 1', id: 1 },
-    { item: 'Pré-valuation 2', id: 2 },
-    { item: 'Pré-valuation 3', id: 3 },
-    { item: 'Pré-valuation 4', id: 4 },
-    { item: 'Pré-valuation 5', id: 5 },
-    { item: 'Pré-valuation 6', id: 6 },
-    { item: 'Pré-valuation 7', id: 7 },
-    { item: 'Pré-valuation 8', id: 8 },
-    { item: 'Pré-valuation 9', id: 9 },
-    { item: 'Pré-valuation 10', id: 10 },
-    { item: 'Pré-valuation 11', id: 11 },
+    { item: 'Pré-valuation 1', id: 1, checked: false, disabled: false },
+    { item: 'Pré-valuation 2', id: 2, checked: false, disabled: false },
+    { item: 'Pré-valuation 3', id: 3, checked: false, disabled: false },
+    { item: 'Pré-valuation 4', id: 4, checked: false, disabled: false },
+    { item: 'Pré-valuation 5', id: 5, checked: false, disabled: false },
+    { item: 'Pré-valuation 6', id: 6, checked: false, disabled: false },
+    { item: 'Pré-valuation 7', id: 7, checked: false, disabled: false },
+    { item: 'Pré-valuation 8', id: 8, checked: false, disabled: false },
+    { item: 'Pré-valuation 9', id: 9, checked: false, disabled: false },
+    { item: 'Pré-valuation 10', id: 10, checked: false, disabled: false },
+    { item: 'Pré-valuation 11', id: 11, checked: false, disabled: false },
   ];
 
   public eye = {
@@ -38,15 +39,25 @@ export class MainPageComponent implements OnInit {
   public disabledItem: any;
   public isDisabled: boolean = false;
 
-  constructor() {}
+  public page = 2;
+  public pageLabel!: string;
+
+  constructor() {
+    pdfDefaultOptions.assetsFolder = 'bleeding-edge';
+  }
 
   ngOnInit(): void {}
 
   public check(item: any) {
-    this.selectedItem = item;
+    console.log('click check');
+    if (!item.disabled) {
+      console.log(item.disabled);
+
+      item.checked = !item.checked;
+    }
   }
   public disable(item: any) {
-    this.disabledItem = item;
-    this.isDisabled === true;
+    item.disabled = !item.disabled;
+    if (item.disabled) item.checked = false;
   }
 }

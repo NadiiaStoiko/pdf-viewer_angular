@@ -158,3 +158,6 @@
 .selected {
   background-color: #f1f8f6;
 }
+.view {
+  height: 500px;
+}
