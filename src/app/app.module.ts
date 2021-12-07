@@ -3,20 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { TopPanelComponent } from './components/top-panel/top-panel.component';
-import { MainPageComponent } from './components/main-page/main-page.component';
+import { ClientModule } from './client/client.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SidebarComponent,
-    TopPanelComponent,
-    MainPageComponent,
-  ],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, ClientModule, CoreModule],
   providers: [],
   bootstrap: [AppComponent],
 })

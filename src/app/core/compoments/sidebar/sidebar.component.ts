@@ -100,13 +100,11 @@ export class SidebarComponent implements OnInit {
   ];
 
   public activeItem = false;
-  public selectedIcon: any;
   constructor() {}
 
   ngOnInit(): void {}
 
-  public isActive(icon: any) {
+  public isActive() {
     this.activeItem = !this.activeItem;
-    this.selectedIcon = icon;
   }
 }

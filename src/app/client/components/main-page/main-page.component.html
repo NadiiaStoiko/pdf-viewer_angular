@@ -23,11 +23,12 @@
       <div
         class="list-item"
         *ngFor="let item of itemsList"
-        [ngClass]="{ selected: isSelected }"
+        [class.selected]="item === selectedItem"
+        (click)="check(item)"
       >
         <div class="item-content">
           <label class="container">
-            <input type="checkbox" checked="checked" />
+            <input type="checkbox" />
             <span class="checkmark"></span>
           </label>
           <div class="item-id">{{ item.id }}</div>
@@ -36,17 +37,18 @@
         <div class="item-icons">
           <img
             class="eye"
-            src="/assets/img/img-clientsectoin/eye.png"
+            [src]="isDisabled ? eye.srcOf : eye.srcOn"
             alt="eye"
           />
           <img
             class="edit"
-            src="/assets/img/img-clientsectoin/edit.png"
+            [src]="isDisabled ? edit.srcOf : edit.srcOn"
             alt="edit"
           />
           <img
-            class="edit"
-            src="/assets/img/img-clientsectoin/toggle_grey.png"
+            (click)="disable(item)"
+            class="toggle"
+            [src]="isDisabled ? toggler.srcOf : toggler.srcOn"
             alt="toggle"
           />
         </div>
