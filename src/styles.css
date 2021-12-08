@@ -2,4 +2,11 @@
 body {
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
+  overflow: hidden;
+}
+:root {
+  --background-white: #fff;
+  --background-grey: #f5f5f5;
+  --dark-green: #10be99;
+  --light-green: #f1f8f6;
 }

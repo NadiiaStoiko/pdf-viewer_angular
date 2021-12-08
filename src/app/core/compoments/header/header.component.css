@@ -5,9 +5,9 @@
   height: 60px;
   width: 98%;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: var(--background-white);
   margin-bottom: 25px;
-  padding: 10px 20px;
+  padding: 10px 25px;
 }
 .logo-img {
   width: 115px;
@@ -52,14 +52,15 @@
   font-size: 9px;
   border-radius: 12px;
   color: #313133;
-  background: #d1fbf1;
+  background: #c0faec;
   border: none;
   transition: all 0.3s ease-in-out 0s;
   outline: none;
-  position: fixed;
-  right: 3%;
+  position: absolute;
+  right: 2.5%;
   margin-top: 15px;
   transform: translateY(-6px);
+  opacity: 1;
 }
 
 .logout-btn::after {
@@ -67,7 +68,7 @@
   width: 135px;
   height: 45px;
   border-radius: 12px;
-  border: 2px solid #00ffcb;
+  border: 2px solid var(--dark-green);
   position: absolute;
   z-index: -1;
   top: 50%;

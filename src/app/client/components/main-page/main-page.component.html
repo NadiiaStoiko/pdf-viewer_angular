@@ -7,63 +7,80 @@
     />
     <span class="client-sectoin-title-content">Pré-valuation</span>
   </div>
-  <section class="client-sectoin-action-section">
-    <div class="filter-wrap">
-      <input id="icon" class="filter" placeholder="Recherche des modeles" />
-    </div>
-    <div class="table-title">
-      <label class="container">
-        <input type="checkbox" checked="checked" />
-        <span class="checkmark"></span>
-      </label>
-      <div class="list-items">ID</div>
-      <div class="list-items">Nom du modéles</div>
-    </div>
-    <div class="table-body">
-      <div
-        class="list-item"
-        *ngFor="let item of itemsList"
-        [class.selected]="item.checked"
-        [class.disabled]="item.disabled"
-        (change)="check(item)"
-      >
-        <div class="item-content">
-          <label class="container">
-            <input
-              type="checkbox"
-              [attr.disabled]="item.disabled ? true : null"
+  <div class="client-sections">
+    <section class="client-sectoin-actions">
+      <div class="filter-wrap">
+        <input
+          type="text"
+          id="icon"
+          class="form-control"
+          placeholder="Recherche des modeles"
+          [(ngModel)]="itemName"
+        />
+      </div>
+      <div class="table-title">
+        <label class="container">
+          <input type="checkbox" />
+          <span class="checkmark"></span>
+        </label>
+        <div class="list-items-id">ID</div>
+        <div class="list-items-text">Nom du modéles</div>
+      </div>
+      <div class="table-body">
+        <div
+          class="list-item"
+          *ngFor="let item of itemsList | search: itemName"
+          [class.selected]="item.checked"
+          [class.disabled]="item.disabled"
+          (change)="check(item)"
+        >
+          <div class="item-content">
+            <label class="container">
+              <input
+                type="checkbox"
+                [attr.disabled]="item.disabled ? true : null"
+              />
+              <span class="checkmark"></span>
+            </label>
+            <div class="item-id">{{ item.id }}</div>
+            <div class="item-discribe">
+              <div class="item-name">{{ item.item }}</div>
+              <div class="item-date">
+                {{ item.date | date: "dd/MM/yy A h:mm " }}
+              </div>
+            </div>
+          </div>
+          <div class="item-icons">
+            <img
+              (click)="loadPdf(item)"
+              class="eye"
+              [src]="item.disabled ? eye.srcOf : eye.srcOn"
+              alt="eye"
             />
-            <span class="checkmark"></span>
-          </label>
-          <div class="item-id">{{ item.id }}</div>
-          <div class="item-name">{{ item.item }}</div>
-        </div>
-        <div class="item-icons">
-          <img
-            class="eye"
-            [src]="item.disabled ? eye.srcOf : eye.srcOn"
-            alt="eye"
-          />
-          <img
-            class="edit"
-            [src]="item.disabled ? edit.srcOf : edit.srcOn"
-            alt="edit"
-          />
-          <img
-            (click)="disable(item)"
-            class="toggle"
-            [src]="item.disabled ? toggler.srcOf : toggler.srcOn"
-            alt="toggle"
-          />
+            <img
+              class="edit"
+              [src]="item.disabled ? edit.srcOf : edit.srcOn"
+              alt="edit"
+            />
+            <img
+              (click)="disable(item)"
+              class="toggle"
+              [src]="item.disabled ? toggler.srcOf : toggler.srcOn"
+              alt="toggle"
+            />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="client-sectoin-view-section">
-    <ngx-extended-pdf-viewer
-      [src]="'assets/some.pdf'"
-      [useBrowserLocale]="true"
-      height="80vh"
-    ></ngx-extended-pdf-viewer>
-  </section>
+    </section>
+    <section class="client-sectoin-views">
+      <div class="pdf-viewer">
+        <ngx-extended-pdf-viewer
+          [src]="fileSrc"
+          [useBrowserLocale]="true"
+          height="60vh"
+          [textLayer]="true"
+        ></ngx-extended-pdf-viewer>
+      </div>
+    </section>
+  </div>
 </div>
