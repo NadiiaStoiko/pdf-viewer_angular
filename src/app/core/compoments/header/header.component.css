@@ -6,7 +6,7 @@
   width: 98%;
   justify-content: space-between;
   background-color: var(--background-white);
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
   padding: 10px 25px;
 }
 .logo-img {
