@@ -1,4 +1,4 @@
-.wrapper {
+/* .wrapper {
   background-color: var(--background-white);
   flex-direction: column;
   display: flex;
@@ -63,4 +63,74 @@
   filter: invert(67%) sepia(64%) saturate(448%) hue-rotate(114deg)
     brightness(83%) contrast(86%);
   overflow: hidden;
+} */
+
+.wrapper {
+  background-color: var(--background-white);
+  width: 60px;
+  height: 100%;
+  margin-right: 10px;
+  transition: 1.5s;
+}
+
+.wrapper:hover {
+  width: 210px;
+}
+
+.sidebar {
+  background-color: var(--background-white);
+  padding: 0 15px;
+  padding-top: 10px;
+  margin: 0;
+}
+.sidebar:hover .text-block {
+  display: flex;
+}
+
+.icon-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 5px;
+  list-style-type: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.text-block {
+  position: absolute;
+  display: none;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  margin-left: 45px;
+  height: 30px;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.text {
+  font-size: 13px;
+}
+
+.icon-img {
+  width: 25px;
+  height: 25px;
+}
+
+.icon-item:hover .text-block {
+  display: flex;
+  color: #32bc9b;
+}
+.icon-item:hover {
+  background-color: var(--background-grey);
+  border-radius: 6px;
+}
+
+.icon-item:hover > img {
+  filter: invert(67%) sepia(64%) saturate(448%) hue-rotate(114deg)
+    brightness(83%) contrast(86%);
 }

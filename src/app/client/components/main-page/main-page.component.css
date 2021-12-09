@@ -80,7 +80,7 @@
   padding-left: 15px;
 }
 .table-body {
-  max-height: 510px;
+  max-height: 500px;
   overflow-y: auto;
 }
 
